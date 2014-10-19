@@ -198,12 +198,12 @@ var build_iati_marker = function(project){
     var lat = project.position.split(" ")[0];
     var lng = project.position.split(" ")[1];
     console.log(lat, lng);
-    var latlng = new google.maps.LatLng( region["lat"], region["lng"] );
+    var latlng = new google.maps.LatLng( lat, lng );
   var params = {
-      strokeColor: '#0000FF',
+      strokeColor: '#FFFF00',
       strokeOpacity: 0,
       strokeWeight: 2,
-      fillColor: decide_colour(region),
+      fillColor: '#FFFF00',
       fillOpacity: 0.35,
       map: map,
       center: latlng,
