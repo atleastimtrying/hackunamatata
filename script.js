@@ -172,9 +172,23 @@ var decide_radius = function(region){
   return ratio * 40000;
 };
 
+var get_url_vars = function()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+};
+
 var build_marker = function(region){
-  var start_year_id = "health_2007";
-  var end_year_id = "health_2010";
+  var args = get_url_vars();
+  var start_year_id = args["start_year_id"] || "health_2007";
+  var end_year_id   = args["end_year_id"]   || "health_2010";
 
   var latlng = new google.maps.LatLng( region["lat"], region["lng"] );
   var params = {
