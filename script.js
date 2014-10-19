@@ -156,7 +156,10 @@ var build_link = function(region){
 };
 
 var decide_colour = function(region){
-  if(parseInt(region["health_2007"]) >= parseInt(region["health_2010"])){
+  var start_year_id = "health_2007";
+  var end_year_id = "health_2010";
+
+  if(parseInt(region[start_year_id]) >= parseInt(region[end_year_id])){
     return '#ff0000';
   }else{
     return '#00ff00';
