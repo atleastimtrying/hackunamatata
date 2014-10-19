@@ -1,5 +1,4 @@
-
-Mission Control
+Hackunamata
 ===========
 
-A Sinatra app designed to keep track of mission statements of companies and their social proofs. New Companies and News Items can be inserted via an authenticated API.
+We used a variety of datasources on ugandan life to try and find correllations between aid spending and signifiers of improved lifestyle.
