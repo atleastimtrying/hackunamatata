@@ -2,7 +2,6 @@ require 'sinatra'
 require 'json'
 require 'net/http'
 require 'uri'
-require 'pry'
 require 'csv'
 
 def get_data
