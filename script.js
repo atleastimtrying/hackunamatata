@@ -155,10 +155,7 @@ var build_link = function(region){
   });
 };
 
-var decide_colour = function(region){
-  var start_year_id = "health_2007";
-  var end_year_id = "health_2010";
-
+var decide_colour = function(start_year_id, end_year_id, region){
   if(parseInt(region[start_year_id]) >= parseInt(region[end_year_id])){
     return '#ff0000';
   }else{
@@ -176,12 +173,15 @@ var decide_radius = function(region){
 };
 
 var build_marker = function(region){
+  var start_year_id = "health_2007";
+  var end_year_id = "health_2010";
+
   var latlng = new google.maps.LatLng( region["lat"], region["lng"] );
   var params = {
       strokeColor: '#FF0000',
       strokeOpacity: 0,
       strokeWeight: 2,
-      fillColor: decide_colour(region),
+      fillColor: decide_colour(start_year_id, end_year_id, region),
       fillOpacity: 0.35,
       map: map,
       center: latlng,
