@@ -37,7 +37,7 @@ var build_secondary_education_data = function(region){
   return google.visualization.arrayToDataTable([
     ['Year', 'gross intake', 'net intake', 'gross enrollment', 'net enrolment'],
     ['2009',  numberify(region["secondary_education_gross_intake_2009"]), numberify(region["secondary_education_net_intake_2009"]),numberify(region["secondary_education_gross_enrolment_2009"]), numberify(region["secondary_education_net_enrolment_2009"]) ],
-    ['2010',  numberify(region["secondary_education_gross_intake_2010"]), numberify(region["secondary_education_net_intake_2010"]),parseInt(region["secondary_education_gross_enrolment_2010"]), parseInt(region["secondary_education_net_enrolment_2010"]) ]
+    ['2010',  numberify(region["secondary_education_gross_intake_2010"]), numberify(region["secondary_education_net_intake_2010"]),numberify(region["secondary_education_gross_enrolment_2010"]), numberify(region["secondary_education_net_enrolment_2010"]) ]
   ]);
 };
 
@@ -62,17 +62,17 @@ var build_land_usage_data = function(region){
 
 var build_health_options = function(region){
   return {
-    title: "Health over time for ugandan region " + region["region_district"],
+    title: "Amount of Health Centers and Hospitals for ugandan region " + region["region_district"],
     hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-    vAxis: {title: 'health', minValue: 0}
+    vAxis: {title: 'Amount of Health Centers and Hospitals', minValue: 0}
   };
 };
 
 var build_population_options = function(region){
   return {
-    title: "Population for ugandan region " + region["region_district"],
+    title: "Census Population for ugandan region " + region["region_district"],
     hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-    vAxis: {title: 'population', minValue: 0}
+    vAxis: {title: 'Population', minValue: 0}
   };
 };
 
