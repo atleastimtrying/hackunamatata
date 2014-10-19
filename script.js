@@ -8,9 +8,9 @@ var insert_div = function(){
 var build_health_data = function(region){
   return google.visualization.arrayToDataTable([
     ['Year', 'Value'],
-    ['2007',  parseInt(region["health_2007"])],
-    ['2009',  parseInt(region["health_2009"])],
-    ['2010',  parseInt(region["health_2010"])]
+    ['2007',  numberify(region["health_2007"])],
+    ['2009',  numberify(region["health_2009"])],
+    ['2010',  numberify(region["health_2010"])]
   ]);
 };
 
@@ -18,45 +18,45 @@ var build_health_data = function(region){
 var build_population_data = function(region){
   return google.visualization.arrayToDataTable([
     ['Year', 'Value'],
-    ['1991',  parseInt(region["population_1991"])],
-    ['2002',  parseInt(region["population_2002"])],
-    ['2011',  parseInt(region["population_projected_2011"])],
-    ['2011',  parseInt(region["population_2012"])]
+    ['1991',  numberify(region["population_1991"])],
+    ['2002',  numberify(region["population_2002"])],
+    ['2011',  numberify(region["population_projected_2011"])],
+    ['2011',  numberify(region["population_2012"])]
   ]);
 };
 
 var build_primary_education_data = function(region){
   return google.visualization.arrayToDataTable([
     ['Year', 'gross intake', 'net intake', 'gross enrollment', 'net enrolment'],
-    ['2009',  parseInt(region["primary_education_gross_intake_2009"]), parseInt(region["primary_education_net_intake_2009"]),parseInt(region["primary_education_gross_enrolment_2009"]), parseInt(region["primary_education_net_enrolment_2009"]) ],
-    ['2010',  parseInt(region["primary_education_gross_intake_2010"]), parseInt(region["primary_education_net_intake_2010"]),parseInt(region["primary_education_gross_enrolment_2010"]), parseInt(region["primary_education_net_enrolment_2010"]) ]
+    ['2009',  numberify(region["primary_education_gross_intake_2009"]), numberify(region["primary_education_net_intake_2009"]),numberify(region["primary_education_gross_enrolment_2009"]), numberify(region["primary_education_net_enrolment_2009"]) ],
+    ['2010',  numberify(region["primary_education_gross_intake_2010"]), numberify(region["primary_education_net_intake_2010"]),numberify(region["primary_education_gross_enrolment_2010"]), numberify(region["primary_education_net_enrolment_2010"]) ]
   ]);
 };
 
 var build_secondary_education_data = function(region){
   return google.visualization.arrayToDataTable([
     ['Year', 'gross intake', 'net intake', 'gross enrollment', 'net enrolment'],
-    ['2009',  parseInt(region["secondary_education_gross_intake_2009"]), parseInt(region["secondary_education_net_intake_2009"]),parseInt(region["secondary_education_gross_enrolment_2009"]), parseInt(region["secondary_education_net_enrolment_2009"]) ],
-    ['2010',  parseInt(region["secondary_education_gross_intake_2010"]), parseInt(region["secondary_education_net_intake_2010"]),parseInt(region["secondary_education_gross_enrolment_2010"]), parseInt(region["secondary_education_net_enrolment_2010"]) ]
+    ['2009',  numberify(region["secondary_education_gross_intake_2009"]), numberify(region["secondary_education_net_intake_2009"]),numberify(region["secondary_education_gross_enrolment_2009"]), numberify(region["secondary_education_net_enrolment_2009"]) ],
+    ['2010',  numberify(region["secondary_education_gross_intake_2010"]), numberify(region["secondary_education_net_intake_2010"]),parseInt(region["secondary_education_gross_enrolment_2010"]), parseInt(region["secondary_education_net_enrolment_2010"]) ]
   ]);
 };
 
 var build_land_usage_data = function(region){
   return google.visualization.arrayToDataTable([
-    ["Name", "Value"],
-    ["Urbanised Areas" , parseInt(region["urbanised_areas"])],
-    ["Bushlands" , parseInt(region["bushlands"])],
-    ["Commercial Farmlands" , parseInt(region["commercial_farmlands"])],
-    ["Cultivated Lands" , parseInt(region["cultivated_lands"])],
-    ["GrassLands" , parseInt(region["grasslands"])],
-    ["Impediments" , parseInt(region["impediments"])],
-    ["Plantations" , parseInt(region["plantations"])],
-    ["Plantations Softwoods" , parseInt(region["plantations_softwoods"])],
-    ["Depleted Tropical Forest" , parseInt(region["depleted_tropical_forest"])],
-    ["Tropical Forest" , parseInt(region["tropical_forest"])],
-    ["Water Bodies" , parseInt(region["water_bodies"])],
-    ["Wetlands" , parseInt(region["wetlands"])],
-    ["Woodlands" , parseInt(region["woodlands"])]
+    ["Name", "Value", "Units"],
+    ["Urbanised Areas" , numberify(region["urbanised_areas"]), "square km"],
+    ["Bushlands" , numberify(region["bushlands"]), "square km"],
+    ["Commercial Farmlands (cattle)" , numberify(region["commercial_farmlands"]), "square km"],
+    ["Cultivated Lands (farming)" , numberify(region["cultivated_lands"]), "square km"],
+    ["GrassLands" , numberify(region["grasslands"]), "square km"],
+    ["Impediments (collapsed terrain, landslides etc)" , numberify(region["impediments"]), "square km"],
+    ["Plantations" , numberify(region["plantations"]), "square km"],
+    ["Plantations Softwoods" , numberify(region["plantations_softwoods"]), "square km"],
+    ["Depleted Tropical Forest" , numberify(region["depleted_tropical_forest"]), "square km"],
+    ["Tropical Forest" , numberify(region["tropical_forest"]), "square km"],
+    ["Water Bodies" , numberify(region["water_bodies"]), "square km"],
+    ["Wetlands" , numberify(region["wetlands"]), "square km"],
+    ["Woodlands" , numberify(region["woodlands"]), "square km"]
   ]);
 };
 
@@ -140,7 +140,10 @@ var start = function() {
   setup_map();
   $.getJSON('/health.json', function(regions){
     regions.forEach(build_marker);
-  })
+  });
+  $.getJSON('/iati.json', function(projects){
+    projects.forEach(build_iati_marker);
+  });
 };
 
 var build_link = function(region){
@@ -153,7 +156,7 @@ var build_link = function(region){
 };
 
 var decide_colour = function(region){
-  if(parseInt(region["health_2007"]) >= parseInt(region["health_2009"])){
+  if(parseInt(region["health_2007"]) >= parseInt(region["health_2010"])){
     return '#ff0000';
   }else{
     return '#00ff00';
@@ -185,6 +188,25 @@ var build_marker = function(region){
   google.maps.event.addListener(circle, 'click', function() {
    build_chart(region);
   });
+};
+
+var build_iati_marker = function(project){
+  // debugger;
+  // var latlng = new google.maps.LatLng( region["lat"], region["lng"] );
+  // var params = {
+  //     strokeColor: '#FF0000',
+  //     strokeOpacity: 0,
+  //     strokeWeight: 2,
+  //     fillColor: decide_colour(region),
+  //     fillOpacity: 0.35,
+  //     map: map,
+  //     center: latlng,
+  //     radius: decide_radius(region)
+  // };
+  // var circle = new google.maps.Circle(params);
+  // google.maps.event.addListener(circle, 'click', function() {
+  //  build_chart(region);
+  // });
 };
 
 google.load("visualization", "1", {packages:["corechart", "geochart", "table"]});

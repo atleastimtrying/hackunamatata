@@ -34,6 +34,11 @@ end
 get '/health.json' do
   send_file 'data/merged.json'
 end
+
+get '/iati.json' do
+  send_file 'data/iati.json'
+end
+
 get '/' do
   # @data = get_data().to_json
   # File.open("data/health2.json", "w") do |file|
