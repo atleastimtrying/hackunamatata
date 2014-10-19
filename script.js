@@ -155,14 +155,14 @@ var build_link = function(region){
   });
 };
 
-// var build_iati_link = function(project){
-//   var link  = $('<a href="#">' + project["title"] + '</a>');
-//   $('#links').append(link);
-//   link.click(function(event){
-//     event.preventDefault();
-//     build_iati_chart(project);
-//   });
-// };
+var build_iati_link = function(project){
+  var link  = $('<a href="#">' + project["title"] + '</a>');
+  $('#links').append(link);
+  link.click(function(event){
+    event.preventDefault();
+    build_iati_chart(project);
+  });
+};
 
 var decide_colour = function(start_year_id, end_year_id, region){
   if(parseInt(region[start_year_id]) >= parseInt(region[end_year_id])){
@@ -172,9 +172,9 @@ var decide_colour = function(start_year_id, end_year_id, region){
   }
 };
 
-// var build_iati_chart = function(project){
-//   console.log('project', project);
-// };
+var build_iati_chart = function(project){
+  console.log('project', project);
+};
 
 var numberify = function(string){
   return parseInt(string.split(",").join(""));
@@ -195,37 +195,34 @@ var build_marker = function(region){
       strokeOpacity: 0,
       strokeWeight: 2,
       fillColor: decide_colour(start_year_id, end_year_id, region),
-      fillOpacity: 0.35,
+      fillOpacity: 0.01,
       map: map,
       center: latlng,
       radius: decide_radius(region)
   };
   var circle = new google.maps.Circle(params);
   google.maps.event.addListener(circle, 'click', function() {
-   build_chart(region);
+    build_chart(region);
   });
 };
 
 var build_iati_marker = function(project){
-  // if(project.position){
-  //   var lat = project.position.split(" ")[0];
-  //   var lng = project.position.split(" ")[1];
-  //   console.log(lat, lng);
-  //   var latlng = new google.maps.LatLng( lat, lng );
-  //   var params = {
-  //       strokeColor: '#FFFF00',
-  //       strokeOpacity: 0,
-  //       strokeWeight: 2,
-  //       fillColor: '#FFFF00',
-  //       fillOpacity: 0.35,
-  //       map: map,
-  //       center: latlng,
-  //       radius: 10000
-  //   };
-  //   var circle = new google.maps.Circle(params);
-  // }else{
-  //   build_iati_link(project);
-  // }
+  if(project.position){
+    var lat = project.position.split(" ")[0];
+    var lng = project.position.split(" ")[1];
+    var latlng = new google.maps.LatLng( lat, lng );
+    var params = {
+      strokeColor: '#FFFF00',
+      strokeOpacity: 0,
+      strokeWeight: 2,
+      fillColor: '#FFFF00',
+      fillOpacity: 0.35,
+      map: map,
+      center: latlng,
+      radius: 10000
+    };
+    var circle = new google.maps.Circle(params);
+  }
 };
 
 google.load("visualization", "1", {packages:["corechart", "geochart", "table"]});
