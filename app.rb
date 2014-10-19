@@ -33,7 +33,7 @@ get '/script.js' do
 end
 
 get '/health.json' do
-  send_file 'data/health2.json'
+  send_file 'data/merged.json'
 end
 get '/' do
   # @data = get_data().to_json

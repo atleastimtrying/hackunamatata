@@ -1,0 +1,297 @@
+[
+  {
+    "region_district": "Adjumani",
+    "lat": 3.384444,
+    "lng": 31.781944
+  },
+  {
+    "region_district": "Apac",
+    "lat": 1.983333,
+    "lng": 32.533333
+  },
+  {
+    "region_district": "Arua",
+    "lat": 3.038333,
+    "lng": 30.910833
+  },
+  {
+    "region_district": "Bugiri",
+    "lat": 0.569444,
+    "lng": 33.748611
+  },
+  {
+    "region_district": "Bundibugyo",
+    "lat": 0.7125,
+    "lng": 30.06
+  },
+  {
+    "region_district": "Bushenyi",
+    "lat": -0.541667,
+    "lng": 30.185
+  },
+  {
+    "region_district": "Busia",
+    "lat": 0.4706692,
+    "lng": 34.0919803
+  },
+  {
+    "region_district": "Gulu",
+    "lat": 2.78,
+    "lng": 32.3
+  },
+  {
+    "region_district": "Hoima",
+    "lat": 1.431944,
+    "lng": 31.3525
+  },
+  {
+    "region_district": "Iganga",
+    "lat": 0.615,
+    "lng": 33.485
+  },
+  {
+    "region_district": "Jinja",
+    "lat": 0.424444,
+    "lng": 33.204167
+  },
+  {
+    "region_district": "Kabale",
+    "lat": -1.25,
+    "lng": 29.99
+  },
+  {
+    "region_district": "Kabarole",
+    "lat": 0.5896682,
+    "lng": 30.2548787
+  },
+  {
+    "region_district": "Kaberamaido",
+    "lat": 1.766667,
+    "lng": 33.152222
+  },
+  {
+    "region_district": "Kalangala",
+    "lat": -0.3208374,
+    "lng": 32.2937428
+  },
+  {
+    "region_district": "Kampala",
+    "lat": 0.313611,
+    "lng": 32.581111
+  },
+  {
+    "region_district": "Kamuli",
+    "lat": 0.9450000000000001,
+    "lng": 33.125
+  },
+  {
+    "region_district": "Kamwenge",
+    "lat": 0.186066,
+    "lng": 30.4512086
+  },
+  {
+    "region_district": "Kanungu",
+    "lat": -0.8195253,
+    "lng": 29.742604
+  },
+  {
+    "region_district": "Kapchorwa",
+    "lat": 1.4,
+    "lng": 34.45
+  },
+  {
+    "region_district": "Kasese",
+    "lat": 0.186667,
+    "lng": 30.08805599999999
+  },
+  {
+    "region_district": "Katakwi",
+    "lat": 1.915,
+    "lng": 33.955
+  },
+  {
+    "region_district": "Kayunga",
+    "lat": 0.7013707,
+    "lng": 32.9029088
+  },
+  {
+    "region_district": "Kibaale",
+    "lat": 0.7682547,
+    "lng": 31.0776593
+  },
+  {
+    "region_district": "Kiboga",
+    "lat": 0.92,
+    "lng": 31.76
+  },
+  {
+    "region_district": "Kisoro",
+    "lat": -1.285,
+    "lng": 29.685
+  },
+  {
+    "region_district": "Kitgum",
+    "lat": 3.2884847,
+    "lng": 32.8789499
+  },
+  {
+    "region_district": "Kotido",
+    "lat": 3.006111,
+    "lng": 34.1125
+  },
+  {
+    "region_district": "Kumi",
+    "lat": 1.49,
+    "lng": 33.935
+  },
+  {
+    "region_district": "Kyenjojo",
+    "lat": 0.61,
+    "lng": 30.644167
+  },
+  {
+    "region_district": "Lira",
+    "lat": 2.247222,
+    "lng": 32.9
+  },
+  {
+    "region_district": "Luweero",
+    "lat": 0.833056,
+    "lng": 32.499444
+  },
+  {
+    "region_district": "Masaka",
+    "lat": -0.34,
+    "lng": 31.74
+  },
+  {
+    "region_district": "Masindi",
+    "lat": 1.683333,
+    "lng": 31.733333
+  },
+  {
+    "region_district": "Mayuge",
+    "lat": 0.2527562,
+    "lng": 33.5504758
+  },
+  {
+    "region_district": "Mbale",
+    "lat": 1.080556,
+    "lng": 34.175
+  },
+  {
+    "region_district": "Mbarara",
+    "lat": -0.613333,
+    "lng": 30.658333
+  },
+  {
+    "region_district": "Moroto",
+    "lat": 2.53,
+    "lng": 34.67
+  },
+  {
+    "region_district": "Moyo",
+    "lat": 3.655,
+    "lng": 31.72
+  },
+  {
+    "region_district": "Mpigi",
+    "lat": 0.233333,
+    "lng": 32.333333
+  },
+  {
+    "region_district": "Mubende",
+    "lat": 0.5575,
+    "lng": 31.395
+  },
+  {
+    "region_district": "Mukono",
+    "lat": 0.353333,
+    "lng": 32.755278
+  },
+  {
+    "region_district": "Nakapiripirit",
+    "lat": 1.8502515,
+    "lng": 34.7215859
+  },
+  {
+    "region_district": "Nakasongola",
+    "lat": 1.315,
+    "lng": 32.465
+  },
+  {
+    "region_district": "Nebbi",
+    "lat": 2.479167,
+    "lng": 31.09
+  },
+  {
+    "region_district": "Ntungamo",
+    "lat": -0.881944,
+    "lng": 30.265278
+  },
+  {
+    "region_district": "Pader",
+    "lat": 2.8802511,
+    "lng": 33.085885
+  },
+  {
+    "region_district": "Pallisa",
+    "lat": 1.1675,
+    "lng": 33.71
+  },
+  {
+    "region_district": "Rakai",
+    "lat": -0.70294,
+    "lng": 31.40991
+  },
+  {
+    "region_district": "Rukungiri",
+    "lat": -0.7899999999999999,
+    "lng": 29.925
+  },
+  {
+    "region_district": "Sembabule",
+    "lat": -0.08,
+    "lng": 31.46
+  },
+  {
+    "region_district": "Sironko",
+    "lat": 1.233333,
+    "lng": 34.25
+  },
+  {
+    "region_district": "Soroti",
+    "lat": 1.715,
+    "lng": 33.611111
+  },
+  {
+    "region_district": "Tororo",
+    "lat": 0.692778,
+    "lng": 34.181111
+  },
+  {
+    "region_district": "Wakiso",
+    "lat": 0.398056,
+    "lng": 32.478056
+  },
+  {
+    "region_district": "Yumbe",
+    "lat": 3.466667,
+    "lng": 31.25
+  },
+  {
+    "region_district": "Tororo",
+    "lat": 0.692778,
+    "lng": 34.181111
+  },
+  {
+    "region_district": "Wakiso",
+    "lat": 0.398056,
+    "lng": 32.478056
+  },
+  {
+    "region_district": "Yumbe",
+    "lat": 3.466667,
+    "lng": 31.25
+  }
+]
