@@ -191,19 +191,24 @@ var build_marker = function(region){
 };
 
 var build_iati_marker = function(project){
-  // debugger;
-  // var latlng = new google.maps.LatLng( region["lat"], region["lng"] );
-  // var params = {
-  //     strokeColor: '#FF0000',
-  //     strokeOpacity: 0,
-  //     strokeWeight: 2,
-  //     fillColor: decide_colour(region),
-  //     fillOpacity: 0.35,
-  //     map: map,
-  //     center: latlng,
-  //     radius: decide_radius(region)
-  // };
-  // var circle = new google.maps.Circle(params);
+  if(project.position){
+    var lat = project.position.split(" ")[0];
+    var lng = project.position.split(" ")[1];
+    console.log(lat, lng);
+    var latlng = new google.maps.LatLng( region["lat"], region["lng"] );
+  var params = {
+      strokeColor: '#0000FF',
+      strokeOpacity: 0,
+      strokeWeight: 2,
+      fillColor: decide_colour(region),
+      fillOpacity: 0.35,
+      map: map,
+      center: latlng,
+      radius: 10000
+  };
+  var circle = new google.maps.Circle(params);
+  }
+  // 
   // google.maps.event.addListener(circle, 'click', function() {
   //  build_chart(region);
   // });
