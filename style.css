@@ -29,6 +29,12 @@ h3{
 .chart{
   margin-bottom: 32px;
 }
+.red{
+  color:red;
+}
+.green{
+  color:green;
+}
 .wrapper{
   max-width:920px;
   margin: 0 auto;
