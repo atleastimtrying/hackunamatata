@@ -212,12 +212,13 @@ var build_marker = function(region){
       strokeOpacity: 0,
       strokeWeight: 2,
       fillColor: decide_colour(start_year_id, end_year_id, region),
-      fillOpacity: 0.01,
+      fillOpacity: 0.35,
       map: map,
       center: latlng,
       radius: decide_radius(region)
   };
   var circle = new google.maps.Circle(params);
+  
   google.maps.event.addListener(circle, 'click', function() {
     build_chart(region);
   });
@@ -233,7 +234,7 @@ var build_iati_marker = function(project){
       strokeOpacity: 0,
       strokeWeight: 2,
       fillColor: '#FFFF00',
-      fillOpacity: 0.35,
+      fillOpacity: 0.10,
       map: map,
       center: latlng,
       radius: 10000
