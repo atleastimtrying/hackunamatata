@@ -7,7 +7,7 @@ var insert_div = function(){
 
 var build_health_data = function(region){
   return google.visualization.arrayToDataTable([
-    ['Year', 'Value'],
+    ['Year', 'Hospitals & Level II, III, IV Health Centers'],
     ['2007',  numberify(region["health_2007"])],
     ['2009',  numberify(region["health_2009"])],
     ['2010',  numberify(region["health_2010"])]
@@ -17,7 +17,7 @@ var build_health_data = function(region){
 
 var build_population_data = function(region){
   return google.visualization.arrayToDataTable([
-    ['Year', 'Value'],
+    ['Year', 'Population Number (absolute)'],
     ['1991',  numberify(region["population_1991"])],
     ['2002',  numberify(region["population_2002"])],
     ['2011',  numberify(region["population_projected_2011"])],
@@ -43,20 +43,20 @@ var build_secondary_education_data = function(region){
 
 var build_land_usage_data = function(region){
   return google.visualization.arrayToDataTable([
-    ["Name", "Value", "Units"],
-    ["Urbanised Areas" , numberify(region["urbanised_areas"]), "square km"],
-    ["Bushlands" , numberify(region["bushlands"]), "square km"],
-    ["Commercial Farmlands (cattle)" , numberify(region["commercial_farmlands"]), "square km"],
-    ["Cultivated Lands (farming)" , numberify(region["cultivated_lands"]), "square km"],
-    ["GrassLands" , numberify(region["grasslands"]), "square km"],
-    ["Impediments (collapsed terrain, landslides etc)" , numberify(region["impediments"]), "square km"],
-    ["Plantations" , numberify(region["plantations"]), "square km"],
-    ["Plantations Softwoods" , numberify(region["plantations_softwoods"]), "square km"],
-    ["Depleted Tropical Forest" , numberify(region["depleted_tropical_forest"]), "square km"],
-    ["Tropical Forest" , numberify(region["tropical_forest"]), "square km"],
-    ["Water Bodies" , numberify(region["water_bodies"]), "square km"],
-    ["Wetlands" , numberify(region["wetlands"]), "square km"],
-    ["Woodlands" , numberify(region["woodlands"]), "square km"]
+    ["Name", "Km"],
+    ["Urbanised Areas" , numberify(region["urbanised_areas"])],
+    ["Bushlands" , numberify(region["bushlands"])],
+    ["Commercial Farmlands (cattle)" , numberify(region["commercial_farmlands"])],
+    ["Cultivated Lands (farming)" , numberify(region["cultivated_lands"])],
+    ["GrassLands" , numberify(region["grasslands"])],
+    ["Impediments (collapsed terrain, landslides etc)" , numberify(region["impediments"])],
+    ["Plantations" , numberify(region["plantations"])],
+    ["Plantations Softwoods" , numberify(region["plantations_softwoods"])],
+    ["Depleted Tropical Forest" , numberify(region["depleted_tropical_forest"])],
+    ["Tropical Forest" , numberify(region["tropical_forest"])],
+    ["Water Bodies" , numberify(region["water_bodies"])],
+    ["Wetlands" , numberify(region["wetlands"])],
+    ["Woodlands" , numberify(region["woodlands"])]
   ]);
 };
 
@@ -80,7 +80,7 @@ var build_primary_education_options = function(region){
   return {
     title: "Primary Education for ugandan region " + region["region_district"],
     hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-    vAxis: {title: '?', minValue: 0}
+    vAxis: {title: 'Number of people', minValue: 0}
   };
 };
 
@@ -88,7 +88,7 @@ var build_secondary_education_options = function(region){
   return {
     title: "Secondary Education for ugandan region " + region["region_district"],
     hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-    vAxis: {title: '?', minValue: 0}
+    vAxis: {title: 'Number of people', minValue: 0}
   };
 };
 
@@ -155,6 +155,15 @@ var build_link = function(region){
   });
 };
 
+// var build_iati_link = function(project){
+//   var link  = $('<a href="#">' + project["title"] + '</a>');
+//   $('#links').append(link);
+//   link.click(function(event){
+//     event.preventDefault();
+//     build_iati_chart(project);
+//   });
+// };
+
 var decide_colour = function(start_year_id, end_year_id, region){
   if(parseInt(region[start_year_id]) >= parseInt(region[end_year_id])){
     return '#ff0000';
@@ -162,6 +171,10 @@ var decide_colour = function(start_year_id, end_year_id, region){
     return '#00ff00';
   }
 };
+
+// var build_iati_chart = function(project){
+//   console.log('project', project);
+// };
 
 var numberify = function(string){
   return parseInt(string.split(",").join(""));
@@ -194,27 +207,25 @@ var build_marker = function(region){
 };
 
 var build_iati_marker = function(project){
-  if(project.position){
-    var lat = project.position.split(" ")[0];
-    var lng = project.position.split(" ")[1];
-    console.log(lat, lng);
-    var latlng = new google.maps.LatLng( lat, lng );
-  var params = {
-      strokeColor: '#FFFF00',
-      strokeOpacity: 0,
-      strokeWeight: 2,
-      fillColor: '#FFFF00',
-      fillOpacity: 0.35,
-      map: map,
-      center: latlng,
-      radius: 10000
-  };
-  var circle = new google.maps.Circle(params);
-  }
-  // 
-  // google.maps.event.addListener(circle, 'click', function() {
-  //  build_chart(region);
-  // });
+  // if(project.position){
+  //   var lat = project.position.split(" ")[0];
+  //   var lng = project.position.split(" ")[1];
+  //   console.log(lat, lng);
+  //   var latlng = new google.maps.LatLng( lat, lng );
+  //   var params = {
+  //       strokeColor: '#FFFF00',
+  //       strokeOpacity: 0,
+  //       strokeWeight: 2,
+  //       fillColor: '#FFFF00',
+  //       fillOpacity: 0.35,
+  //       map: map,
+  //       center: latlng,
+  //       radius: 10000
+  //   };
+  //   var circle = new google.maps.Circle(params);
+  // }else{
+  //   build_iati_link(project);
+  // }
 };
 
 google.load("visualization", "1", {packages:["corechart", "geochart", "table"]});

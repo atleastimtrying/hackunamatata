@@ -1,15 +1,4 @@
 require 'sinatra'
-require 'json'
-require 'net/http'
-require 'uri'
-require 'csv'
-
-def get_data
-  csv_data = CSV.open('data/health2.csv')
-  headers = csv_data.shift.map {|i| i.to_s }
-  string_data = csv_data.map {|row| row.map {|cell| cell.to_s } }
-  array_of_hashes = string_data.map {|row| Hash[*headers.zip(row).flatten] }
-end
 
 get '/style.css' do
   send_file 'style.css'
@@ -40,10 +29,6 @@ get '/iati.json' do
 end
 
 get '/' do
-  # @data = get_data().to_json
-  # File.open("data/health2.json", "w") do |file|
-  #   file.puts JSON.pretty_generate(get_data())
-  # end
   erb :home
 end
 
